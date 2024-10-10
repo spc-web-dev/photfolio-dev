@@ -4,7 +4,7 @@ import MyProfile from "@/components/homepage/my-profile";
 
 export default function Home() {
   return (
-    <div className="flex gap-2 h-screen lg:flex-row flex-col md:p-5 sm:p-10 p-5">
+    <div className="flex gap-2 h-[calc(100vh_-_76px)] lg:flex-row flex-col md:p-5 sm:p-10 p-5">
       <MyProfile />
       <AboutMe />
     </div>

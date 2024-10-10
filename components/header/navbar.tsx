@@ -35,7 +35,7 @@ export default function Navbar() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Networking</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+            <ul className="grid w-[90%] sm:w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
             <li >
                   <NavigationMenuLink asChild>
                     <Link href={'/networking'}
