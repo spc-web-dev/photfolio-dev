@@ -4,23 +4,24 @@ import imageUrl from "@/app/fonts/images/image-p1.jpg";
 import { Button } from "../ui/button";
 import { useEffect, useRef, useState } from "react";
 import { createSwapy } from "swapy";
-import { useRouter } from "next/navigation";
-import { useAppDispatch } from "@/lib/redux/hook";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hook";
 import { setVerifyAuth } from "@/lib/redux/features/auth-slice";
+import { useRouter } from "next/navigation";
 
 type arrT = {
-  slotId: string | null,
-  itemId: string | null,
-}
+  slotId: string | null;
+  itemId: string | null;
+};
 
 const VerifyAuth = () => {
   const gridRef = useRef<HTMLDivElement | null>(null);
   const swapyRef = useRef<any>(null);
   const [startGame, setStartGame] = useState(false);
-  const [dataArr,setDataArr] = useState<arrT[]>()
-  const [error,setError] = useState(false)
+  const [dataArr, setDataArr] = useState<arrT[]>();
+  const [error, setError] = useState(false);
+  const dispatch = useAppDispatch();
   const router = useRouter()
-  const dispatch = useAppDispatch()
+  const {auth} = useAppSelector(state=>state.auth) 
 
   const shuffleItems = (items: HTMLCollection) => {
     const shuffledArray = Array.from(items);
@@ -29,37 +30,28 @@ const VerifyAuth = () => {
   };
 
   const handleVerify = () => {
-    if(dataArr?.length){
-      const err: boolean = dataArr.some((value,index)=>{
-        if(Number(value.itemId) != Number(index)+1) return true
-      })
-      if(err === false){
-        setError(false)
-        dispatch(setVerifyAuth(true))
-      }
-      if(err === true){
-        setError(true)
-        dispatch(setVerifyAuth(false))
-      }
+    if (dataArr?.length) {
+      const err: boolean = dataArr.some((value, index) => {
+        if (Number(value.itemId) != Number(index) + 1) return true;
+      });
+      setError(err);
+      dispatch(setVerifyAuth(!err));
+      if(auth) router.push('/programing')
     }
   };
 
   const handleRendom = () => {
     setStartGame(true);
     if (gridRef.current) {
-      // Destroy the existing Swapy instance
       if (swapyRef.current) {
         swapyRef.current.destroy();
       }
-
-      // Shuffle and update HTML
       const shuffledItems = shuffleItems(gridRef.current.children);
       const shuffledHTML = Array.from(shuffledItems)
         .map((item) => item.outerHTML)
         .join("");
       gridRef.current.innerHTML = shuffledHTML;
 
-      // Reinitialize Swapy
       swapyRef.current = createSwapy(gridRef.current, {
         swapMode: "hover",
       });
@@ -67,23 +59,22 @@ const VerifyAuth = () => {
   };
 
   useEffect(() => {
-    const container = gridRef.current;
-    const swapy = createSwapy(container, {
-      swapMode: "hover",
-    });
-    swapy.onSwapEnd(({ data, hasChanged }) => {
-      if(hasChanged){
-        setDataArr(data.array)
-        setError(false)
-      }
-    });
+      const container = gridRef.current;
+      const swapy = createSwapy(container, {
+        swapMode: "hover",
+      });
+      swapy.onSwapEnd(({ data, hasChanged }) => {
+        if (hasChanged) {
+          setDataArr(data.array);
+          setError(false);
+        }
+      });
 
-    swapy.onSwapStart(() => {});
-    return () => {
-      swapy.destroy();
-    };
-    
-  });
+      swapy.onSwapStart(() => {});
+      return () => {
+        swapy.destroy();
+      };
+  }, [gridRef.current?.children]);
 
   return (
     <div className="w-full h-full flex flex-col items-center gap-5">
@@ -226,7 +217,11 @@ const VerifyAuth = () => {
         </div>
       </div>
       <div>
-        {error && (<p className="text-red-400">Not currect, please fix position of the phicture again!</p>)}
+        {error && (
+          <p className="text-red-400">
+            Not currect, please fix position of the phicture again!
+          </p>
+        )}
       </div>
     </div>
   );
