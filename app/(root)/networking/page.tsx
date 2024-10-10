@@ -1,11 +1,11 @@
-import DragAndDrop from "@/components/networking/drag-and-drop"
+import NetworkingContainer from "@/components/networking/networking-container"
+
 
 
 function page() {
   return (
-    <div>
-        <h1>Networking</h1>
-        <DragAndDrop />
+    <div className="flex justify-center p-5">
+      <NetworkingContainer />
     </div>
   )
 }

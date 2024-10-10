@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { skillsData } from "@/lib/data"
+import { programingSkillsData } from "@/lib/data"
 import Title from "../../shared/title"
 
 
@@ -8,7 +8,7 @@ function MySkills() {
     <div className="flex justify-center flex-col gap-5">
        <Title title="Skills"/>
         <div className="flex gap-2 flex-wrap items-center justify-center">
-            {skillsData.map(skill=>(
+            {programingSkillsData.map(skill=>(
                 <Button key={skill.id} variant={'secondary'}>{skill.name}</Button>
             ))}
         </div>

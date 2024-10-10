@@ -36,7 +36,7 @@ export const socialMediaData = [
     },
 ] as const;
 
-export const skillsData = [
+export const programingSkillsData = [
     {
         id: Math.random(),
         name: 'html',
@@ -90,3 +90,37 @@ export const skillsData = [
         name: 'postgresql',
     },
 ] as const;
+
+export const networkingSkillsData = [
+    {
+        id: Math.random(),
+        video: 'video.mp4',
+        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis fugiat quas aperiam voluptatibus sed dicta.',
+        name: 'mikrotik router',
+    },
+    {
+        id: Math.random(),
+        video: 'video.mp4',
+        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis fugiat quas aperiam voluptatibus sed dicta.',
+        name: 'huawei management switch',
+    },
+    {
+        id: Math.random(),
+        video: 'video.mp4',
+        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis fugiat quas aperiam voluptatibus sed dicta.',
+        name: 'tp-link router',
+    },
+    {
+        id: Math.random(),
+        video: 'video.mp4',
+        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis fugiat quas aperiam voluptatibus sed dicta.',
+        name: 'access point unifi',
+    },
+    {
+        id: Math.random(),
+        video: 'video.mp4',
+        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis fugiat quas aperiam voluptatibus sed dicta.',
+        name: 'access point ruijie',
+    },
+]
+
