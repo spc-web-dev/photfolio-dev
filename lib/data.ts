@@ -93,31 +93,31 @@ export const programingSkillsData = [
 
 export const networkingSkillsData = [
     {
-        id: Math.random(),
+        id: 1,
         video: 'video.mp4',
         description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis fugiat quas aperiam voluptatibus sed dicta.',
         name: 'mikrotik router',
     },
     {
-        id: Math.random(),
+        id: 2,
         video: 'video.mp4',
         description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis fugiat quas aperiam voluptatibus sed dicta.',
         name: 'huawei management switch',
     },
     {
-        id: Math.random(),
+        id: 3,
         video: 'video.mp4',
         description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis fugiat quas aperiam voluptatibus sed dicta.',
         name: 'tp-link router',
     },
     {
-        id: Math.random(),
+        id: 4,
         video: 'video.mp4',
         description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis fugiat quas aperiam voluptatibus sed dicta.',
         name: 'access point unifi',
     },
     {
-        id: Math.random(),
+        id: 5,
         video: 'video.mp4',
         description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis fugiat quas aperiam voluptatibus sed dicta.',
         name: 'access point ruijie',

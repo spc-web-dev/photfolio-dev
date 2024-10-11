@@ -1,6 +1,6 @@
 "use client";
 import { useAppSelector } from "@/lib/redux/hook";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ProgramingContainer from "./programing-container";
 import { useRouter } from "next/navigation";
 

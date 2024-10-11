@@ -1,5 +1,4 @@
-import NetworkingContainer from "@/components/networking/networking-container"
-
+import NetworkingContainer from "@/components/networking/networking-container";
 
 
 function page() {
@@ -7,7 +6,7 @@ function page() {
     <div className="flex justify-center p-5">
       <NetworkingContainer />
     </div>
-  )
+  );
 }
 
-export default page
+export default page;
