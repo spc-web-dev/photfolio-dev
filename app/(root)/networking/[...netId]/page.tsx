@@ -6,11 +6,12 @@ import {
   SignedOut,
 } from "@clerk/nextjs";
 
+
 type Props = {
   netId: string;
 };
 
-function page({ params }: { params: Props }) {
+async function page({ params }: { params: Props }) {
   return (
     <>
       <SignedIn>

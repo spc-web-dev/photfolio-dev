@@ -25,4 +25,17 @@ export const getLocalStorageItemWithExpiry = (key: string) => {
         return item.value;
     }
   };
+
+export const checkLocalStorageExpired = (key: string)=>{
+  if(typeof window !== undefined){
+    const local = localStorage.getItem(key);
+    if(local){
+      const item = JSON.parse(local)
+      const now = new Date()
+      if (now.getTime() > item.expiry) {
+        localStorage.removeItem(key);
+      }
+    }
+  }
+}
   
