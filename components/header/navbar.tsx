@@ -13,18 +13,32 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { networkingSkillsData } from "@/lib/data";
+import { authChecked } from "@/lib/check-auth-func";
+import HavePermission from "./have-permission";
 
 export default function Navbar() {
+  const [authed, setAuthed] = React.useState(false);
+  React.useEffect(() => {
+    async function authCheck() {
+      const result = await authChecked();
+      setAuthed(result);
+    }
+    authCheck();
+  });
   return (
     <NavigationMenu className="p-5">
       <NavigationMenuList>
-        <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Homepage
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
+        {!authed ? (
+          <NavigationMenuItem>
+            <Link href="/" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Homepage
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        ) : (
+          <HavePermission />
+        )}
         <NavigationMenuItem>
           <Link href="/programing" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>

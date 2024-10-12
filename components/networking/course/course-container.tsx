@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import CourseHeader from "./course-header";
-import { networkingSkillsData } from "@/lib/data";
+import { networkingSkillsData, videosData } from "@/lib/data";
 import dynamic from "next/dynamic";
 import { SkeletonCourseCard } from "./skeleton-course-card";
 import SkeletonCourseHeader from "./skeleton-course-header";
@@ -16,9 +16,12 @@ const CourseCardLoading = dynamic(() => import("./course-card"), {
 
 function CourseContainer({ id }: { id: string }) {
   const [data, setData] = useState<(typeof networkingSkillsData)[number]>();
+  const [videos,setVideos] = useState<(typeof videosData)[number][]>()
 
   useEffect(() => {
     networkingSkillsData.map((nt) => nt.id === Number(id) && setData(nt));
+    let vdos = videosData.filter(vdo=>vdo.type_id === Number(id))
+    vdos && setVideos(vdos)
   }, [id]);
 
   return (
@@ -26,11 +29,11 @@ function CourseContainer({ id }: { id: string }) {
       <CourseHeader courseName={data?.name} description={data?.description} />
 
       <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
-        {Array.from({ length: 10 }).map((_, index) => (
+        {videos && videos.map((vdo, index) => (
           <CourseCardLoading
             key={index}
-            src="./video.mp4"
-            description="in this video, you will learn about the basic configuration of mikrotik router"
+            src={vdo.url}
+            description={vdo.description}
             type="video/mp4"
           />
         ))}
