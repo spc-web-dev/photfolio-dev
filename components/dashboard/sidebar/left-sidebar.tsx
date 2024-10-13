@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { BiHome } from "react-icons/bi";
+import LeftSidebarList from "./left-sidebar-list";
 
 
 function LeftSidebar() {
@@ -30,7 +31,7 @@ function LeftSidebar() {
       <Separator className="" />
       <ScrollArea className={`flex-1  max-h-[calc(100vh_-_${totalHeight}px)]`}>
         <div className="p-5">
-         content
+         <LeftSidebarList />
         </div>
       </ScrollArea>
       <div
