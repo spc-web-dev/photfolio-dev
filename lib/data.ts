@@ -295,5 +295,18 @@ export const videosData = [
     },
 ] as const;
 
-
+export const rolesData = [
+    {
+      label: "Admin",
+      value: "admin",
+    },
+    {
+      label: "Student",
+      value: "student",
+    },
+    {
+      label: "Moderator",
+      value: "moderator",
+    },
+  ] as const;
 
