@@ -4,7 +4,7 @@ import CourseHeader from "./course-header";
 import { networkingSkillsData, videosData } from "@/lib/data";
 import dynamic from "next/dynamic";
 import { SkeletonCourseCard } from "./skeleton-course-card";
-import SkeletonCourseHeader from "./skeleton-course-header";
+
 
 const CourseCardLoading = dynamic(() => import("./course-card"), {
   loading: () => (
@@ -19,10 +19,10 @@ function CourseContainer({ id }: { id: string }) {
   const [videos,setVideos] = useState<(typeof videosData)[number][]>()
 
   useEffect(() => {
-    networkingSkillsData.map((nt) => nt.id === Number(id) && setData(nt));
-    let vdos = videosData.filter(vdo=>vdo.type_id === Number(id))
+    networkingSkillsData.map((nt) => nt.course_id === id[0] && setData(nt));
+    let vdos = videosData.filter(vdo=>vdo.course_id === id[0])
     vdos && setVideos(vdos)
-  }, [id]);
+  }, [id[0]]);
 
   return (
     <div className="2xl:w-[50%] lg:w-[65%] w-full space-y-10">
@@ -32,7 +32,7 @@ function CourseContainer({ id }: { id: string }) {
         {videos && videos.map((vdo, index) => (
           <CourseCardLoading
             key={index}
-            src={vdo.url}
+            url={vdo.url}
             description={vdo.description}
             type="video/mp4"
           />

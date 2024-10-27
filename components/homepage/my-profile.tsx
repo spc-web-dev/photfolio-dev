@@ -1,5 +1,5 @@
 import Image from "next/image"
-import myProfile from '@/app/fonts/images/image-p1-removebg.png'
+import myProfile from '@/public/images/image-p1-removebg.png'
 
 
 function MyProfile() {

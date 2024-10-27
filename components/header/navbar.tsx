@@ -74,7 +74,7 @@ export default function Navbar() {
                 <li key={nt.id}>
                   <NavigationMenuLink asChild>
                     <Link
-                      href={`/networking/${nt.id}`}
+                      href={`/networking/${nt.course_id}`}
                       className={
                         "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       }

@@ -14,7 +14,7 @@ function LinkPage() {
             <Link href={`/networking`} className="">Networking</Link>
         </Button>
         <Button asChild variant={'secondary'} className="hover:bg-neutral-500 hover:text-white">
-            <a href="../../app/fonts/CV/my-cv.pdf" download>Download my CV</a>
+            <a href="../../public/cv/my-cv.pdf" download>Download my CV</a>
         </Button>
     </div>
   );

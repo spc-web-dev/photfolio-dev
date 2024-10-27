@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import imageUrl from "@/app/fonts/images/image-p1.jpg";
+import imageUrl from "@/public/images/image-p1.jpg";
 import { Button } from "../ui/button";
 import { useEffect, useRef, useState } from "react";
 import { createSwapy } from "swapy";

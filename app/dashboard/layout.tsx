@@ -10,7 +10,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       <div className="lg:hidden inline-block fixed sm:top-5 sm:right-5 top-2 right-2">
         <SmallScreen />
       </div>
-      <div className="p-5 w-full bg-slate-50 min-h-screen">{children}</div>
+      <div className="p-5 w-full bg-slate-50 min-h-screen lg:pt-5 pt-16">{children}</div>
     </div>
   );
 }

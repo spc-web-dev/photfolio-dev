@@ -10,6 +10,21 @@ export const FormUserShema = z.object({
     amount: z.number(),
   });
 
+export const FormVideoShema = z.object({
+  course_id: z.string(),
+  url: z.string(),
+  title: z.string(),
+  description: z.string(),
+  thumbnail: z.string(),
+  date: z.date(),
+});
+
 export type UseForm = {
     form: UseFormReturn<z.infer<typeof FormUserShema>>;
 }
+
+export type UseFormVideo = {
+  form: UseFormReturn<z.infer<typeof FormVideoShema>>;
+}
+
+export type SearchParams = { [key: string]: string | string[] | undefined }

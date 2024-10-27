@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Img from "@/app/fonts/images/image-p1.jpg";
+import Img from "@/public/images/image-p1.jpg";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
